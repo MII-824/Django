@@ -1,0 +1,12 @@
+<!-- templates/students.html -->
+<h2>Student List</h2>
+<ul>
+ {% for student in students %}
+  <li>
+    {{ student.name }} - {{ student.email }}
+    <a href="{% url 'edit_student' student.id %}">Edit</a>
+  </li>
+{% endfor %}
+</ul>
+
+

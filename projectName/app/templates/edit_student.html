@@ -1,0 +1,7 @@
+<!-- templates/edit_student.html -->
+<h2>Edit Student</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
