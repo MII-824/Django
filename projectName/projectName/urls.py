@@ -35,6 +35,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('student/edit/<int:pk>/', views.edit_student, name='edit_student'),
     path('students/add/', views.add_student, name='add_student'),
+    path('students/delete/<int:student_id>/', views.delete_student, name='delete_student'),
 
 
 ]

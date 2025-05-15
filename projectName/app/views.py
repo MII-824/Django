@@ -45,3 +45,8 @@ def edit_student(request, pk):
     else:
         form = StudentForm(instance=student)
     return render(request, 'edit_student.html', {'form': form})
+
+def delete_student(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    student.delete()
+    return redirect('student_list')  # Replace with your list view name
