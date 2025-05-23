@@ -29,13 +29,15 @@
 from django.contrib import admin
 from django.urls import include, path
 from app import views
-urlpatterns = [
-    path('', views.index, name='index'),  # <- ✅ name is 'book-list'
-    path('students/', views.student_list, name='student_list'),  # <- ✅ name is 'student_list'
-    path('admin/', admin.site.urls),
-    path('student/edit/<int:pk>/', views.edit_student, name='edit_student'),
-    path('students/add/', views.add_student, name='add_student'),
-    path('students/delete/<int:student_id>/', views.delete_student, name='delete_student'),
+from django.contrib.auth import views as auth_views
 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', auth_views.LoginView.as_view(), name='login'),
+    path('students/', views.student_list, name='student_list'),
+    path('students/add/', views.add_student, name='add_student'),
+    path('student/edit/<int:pk>/', views.edit_student, name='edit_student'),
+    path('students/delete/<int:student_id>/', views.delete_student, name='delete_student'),
+    
 
 ]

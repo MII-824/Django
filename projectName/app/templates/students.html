@@ -8,8 +8,16 @@
 </head>
 <body>
   <div class="container mt-5">
-
+<div style="text-align: right; margin-bottom: 1rem;">
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <button type="submit" style="padding: 6px 12px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Logout
+        </button>
+    </form>
+</div>
     <h2 class="text-center mb-4">Student List</h2>
+
 
     <!-- Search Form -->
     <form method="get" class="mb-4">

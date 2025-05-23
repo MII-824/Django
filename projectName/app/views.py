@@ -11,13 +11,17 @@ from .models import Student
 from django.db.models import Q
 from .forms import StudentForm
 
+from django.contrib.auth.decorators import login_required
+
+
+
 def index(request):
     context_variable = "Hello, world!"
     return render(request, 'index.html', {'context_variable': context_variable})
 
 
 
-
+@login_required
 def student_list(request):
     query = request.GET.get('q')
     students = Student.objects.all()
